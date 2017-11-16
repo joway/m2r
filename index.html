@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markdown to Remarkup</title>
+  <script src="./lib/lodash.core.js"></script>
+  <script src="./lib/marked.js"></script>
+  <script src="./lib/clipboard.min.js"></script>
+  <script src="./m2r.min.js"></script>
+
+  <style>
+    .center {
+      text-align: center;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pod {
+      display: flex;
+    }
+
+    .container {
+      flex: 1;
+      margin: 32px;
+    }
+
+    .editor {
+      width: 100%;
+      min-height: 512px;
+      border: 5px solid black;
+      font-weight: 400;
+      font-size: 1.2em;
+      border-radius: 3px;
+      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    #md-editor {
+      background-color: #EDF2FC;
+    }
+
+    #rd-editor {
+      background-color: #D8DCE5;
+    }
+
+    .btn {
+      background: #9bbacf;
+      background-image: -webkit-linear-gradient(top, #9bbacf, #0e70ad);
+      background-image: -moz-linear-gradient(top, #9bbacf, #0e70ad);
+      background-image: -ms-linear-gradient(top, #9bbacf, #0e70ad);
+      background-image: -o-linear-gradient(top, #9bbacf, #0e70ad);
+      background-image: linear-gradient(to bottom, #9bbacf, #0e70ad);
+      -webkit-border-radius: 10;
+      -moz-border-radius: 10;
+      border-radius: 10px;
+      font-family: Arial;
+      color: #ffffff;
+      font-size: 20px;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #3cb0fd;
+      background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <h1 class="center">Markdown to Remarkup</h1>
+    <div class="pod">
+      <div class="container">
+        <textarea name="editor" id="md-editor" class="editor"></textarea>
+        <button style="float: right;margin-top: 32px;" class="btn" id="convertBtn" onclick="convert()" data-clipboard-target="#rm-editor">Convert</button>
+      </div>
+      <div class="container">
+        <textarea name="editor" id="rm-editor" class="editor" readonly></textarea>
+        <p id="warn" style="color: red;"></p>        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Clipboard('#convertBtn')
+
+    const mdEditor = document.getElementById('md-editor')
+    const rmEditor = document.getElementById('rm-editor')
+    const warn = document.getElementById('warn')
+
+    mdEditor.value = "# Hi"
+    function convert() {
+      const markdown = mdEditor.value
+      rmEditor.value = m2r(markdown)
+      warn.innerText = 'Copied on clipboard'
+    }
+  </script>
+</body>
+
+</html>
