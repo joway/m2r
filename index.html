@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Markdown to Remarkup</title>
+  <title>Markdown to Phabricator Remarkup</title>
   <script src="./lib/lodash.core.js"></script>
   <script src="./lib/marked.js"></script>
   <script src="./lib/clipboard.min.js"></script>
@@ -14,6 +14,9 @@
   <style>
     .center {
       text-align: center;
+    }
+    .right{
+      text-align: right;
     }
 
     .page {
@@ -79,7 +82,8 @@
 
 <body>
   <div class="page">
-    <h1 class="center">Markdown to Remarkup</h1>
+    <h1 class="center">Markdown to Phabricator Remarkup</h1>
+    <h5 class="right" style="margin-right: 100px">Created By <a href="https://joway.io" target="_blank">Joway</a></h5>
     <div class="pod">
       <div class="container">
         <textarea name="editor" id="md-editor" class="editor"></textarea>
