@@ -17,7 +17,8 @@
     .center {
       text-align: center;
     }
-    .right{
+
+    .right {
       text-align: right;
     }
 
@@ -80,12 +81,27 @@
       text-decoration: none;
     }
   </style>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-53624533-6']);
+    _gaq.push(['_setDomainName', 'm2r.sh.mk']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </head>
 
 <body>
   <div class="page">
     <h1 class="center">Markdown to Phabricator Remarkup</h1>
-    <h5 class="right" style="margin-right: 100px">Created By <a href="https://joway.io" target="_blank">Joway</a></h5>
+    <h5 class="right" style="margin-right: 100px">Created By
+      <a href="https://joway.io" target="_blank">Joway</a>
+    </h5>
     <div class="pod">
       <div class="container">
         <textarea name="editor" id="md-editor" class="editor"></textarea>
@@ -93,7 +109,7 @@
       </div>
       <div class="container">
         <textarea name="editor" id="rm-editor" class="editor" readonly></textarea>
-        <p id="warn" style="color: red;"></p>        
+        <p id="warn" style="color: red;"></p>
       </div>
     </div>
   </div>
